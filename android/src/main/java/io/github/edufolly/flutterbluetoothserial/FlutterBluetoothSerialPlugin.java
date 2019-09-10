@@ -969,6 +969,19 @@ public class FlutterBluetoothSerialPlugin implements MethodCallHandler, RequestP
                 break;
             }
 
+            // DEBUG: Testing MethodChannel ability to send data to common code
+            case "testMethodChannel": {
+                byte[] all = new byte[256];
+                StringBuilder sb = new StringBuilder("DEBUG testMethodChannel native: ");
+                for (int i = -128; i <= 127; i++) {
+                    all[i + 128] = (byte)i;
+                    sb.append(all[i + 128]).append(", ");
+                }
+                Log.d(TAG, sb.toString());
+                result.success(all);
+                break;
+            }
+
             default:
                 result.notImplemented();
                 break;

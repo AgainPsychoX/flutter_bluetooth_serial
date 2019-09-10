@@ -262,4 +262,7 @@ class FlutterBluetoothSerial {
     _defaultConnection.output.add(message);
     return _defaultConnection.output.allSent;
   }
+
+  // DEBUG: Testing MethodChannel ability to send data to common code
+  Future<Uint8List> testMethodChannel() => _methodChannel.invokeMethod('testMethodChannel');
 }

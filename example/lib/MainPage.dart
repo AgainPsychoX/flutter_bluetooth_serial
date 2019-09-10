@@ -87,6 +87,16 @@ class _MainPage extends State<MainPage> {
           children: <Widget>[
             Divider(),
             ListTile(
+              title: RaisedButton(
+                child: const Text('DEBUG: Testing MethodChannel ability to send data to common code'),
+                onPressed: () async {
+                  final all = await FlutterBluetoothSerial.instance.testMethodChannel();
+                  print(all);
+                },
+              ),
+            ),
+            Divider(),
+            ListTile(
               title: const Text('General')
             ),
             SwitchListTile(
